@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.symmetric(horizontal: 30),
                   width: double.infinity,
-                  //height: 100,
+                  height: 350,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(25),
@@ -58,6 +58,11 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(height: 30),
                     ],
                   ),
+                ),
+                const SizedBox(height: 50),
+                const Text(
+                  'Kayıt oluşturmak',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
