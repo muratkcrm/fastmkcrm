@@ -36,9 +36,17 @@ class LoginScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 250),
                 Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
                   width: double.infinity,
                   height: 100,
-                  color: Colors.green,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                        )
+                      ]),
                 ),
               ],
             ),
