@@ -45,6 +45,29 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text('Giriş', style: Theme.of(context).textTheme.headline4),
               const SizedBox(height: 30),
+              Container(
+                child: Form(
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        autocorrect: false,
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.deepPurple),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.deepPurple, width: 2),
+                          ),
+                          hintText: 'Kullanıcı Adı Giriniz...',
+                          labelText: 'admin',
+                          prefixIcon: Icon(Icons.how_to_reg),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
