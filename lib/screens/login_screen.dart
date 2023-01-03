@@ -14,43 +14,46 @@ class LoginScreen extends StatelessWidget {
           children: [
             cajapurpura(size),
             iconpersonal(),
-            Column(
-              children: [
-                const SizedBox(height: 250),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  margin: const EdgeInsets.symmetric(horizontal: 30),
-                  width: double.infinity,
-                  height: 350,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 15, // gölgelik atılması için kullanılır.
-                          offset: Offset(0, 5),
-                        )
-                      ]),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 10),
-                      Text('Login',
-                          style: Theme.of(context).textTheme.headline4),
-                      const SizedBox(height: 30),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 50),
-                const Text(
-                  'Kayıt oluşturmak',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+            loginform(context),
           ],
         ),
       ),
+    );
+  }
+
+  Column loginform(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(height: 250),
+        Container(
+          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          width: double.infinity,
+          height: 350,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  //blurRadius: 15, // gölgelik atılması için kullanılır.
+                  offset: Offset(0, 5),
+                )
+              ]),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text('Giriş', style: Theme.of(context).textTheme.headline4),
+              const SizedBox(height: 30),
+            ],
+          ),
+        ),
+        const SizedBox(height: 50),
+        const Text(
+          'Kayıt oluşturmak',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 
@@ -65,31 +68,23 @@ class LoginScreen extends StatelessWidget {
       height: size.height * 0.4,
       child: Stack(
         children: [
-          Positioned(
-            top: 90,
-            left: 30,
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: const Color.fromRGBO(255, 255, 255, 0.05),
-              ),
-            ),
-          ),
-          Positioned(
-            top: -40,
-            left: -30,
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: const Color.fromRGBO(255, 255, 255, 0.05),
-              ),
-            ),
-          ),
+          Positioned(top: 90, left: 30, child: burbuja()),
+          Positioned(top: -40, left: -30, child: burbuja()),
+          Positioned(top: -50, right: -20, child: burbuja()),
+          Positioned(bottom: -50, left: 10, child: burbuja()),
+          Positioned(bottom: 120, right: -20, child: burbuja()),
         ],
+      ),
+    );
+  }
+
+  Container burbuja() {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        color: const Color.fromRGBO(255, 255, 255, 0.05),
       ),
     );
   }
