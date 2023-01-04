@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -7,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Stack(
@@ -18,6 +19,7 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 
@@ -64,6 +66,22 @@ class LoginScreen extends StatelessWidget {
                           prefixIcon: Icon(Icons.how_to_reg),
                         ),
                       ),
+                      const SizedBox(height: 30),
+                      TextFormField(
+                        autocorrect: false,
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.deepPurple),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.deepPurple, width: 2),
+                          ),
+                          hintText: '***********',
+                          labelText: 'Şifre',
+                          prefixIcon: Icon(Icons.lock_outline),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -72,9 +90,13 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 50),
+        //const Text(
+        //  'Kayıt oluşturmak',
+        //  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        //),
         const Text(
-          'Kayıt oluşturmak',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          kIsWeb ? "App is Running on Web" : "App is Running on Mobile",
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
         ),
       ],
     );
