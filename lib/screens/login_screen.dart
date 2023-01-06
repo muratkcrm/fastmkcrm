@@ -22,82 +22,98 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Column loginform(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 200),
-        Container(
-          padding: const EdgeInsets.all(20),
-          margin: const EdgeInsets.symmetric(horizontal: 30),
-          width: double.infinity,
-          height: (MediaQuery.of(context).size.height) * 0.5,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black12,
-                  //blurRadius: 15, // gölgelik atılması için kullanılır.
-                  offset: Offset(0, 5),
-                )
-              ]),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              Text('Giriş', style: Theme.of(context).textTheme.headline4),
-              const SizedBox(height: 30),
-              Container(
-                child: Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        autocorrect: false,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
+  SingleChildScrollView loginform(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 250),
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            width: double.infinity,
+            height: (MediaQuery.of(context).size.height) * 0.5,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(25),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black12,
+                    //blurRadius: 15, // gölgelik atılması için kullanılır.
+                    offset: Offset(0, 5),
+                  )
+                ]),
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                Text('Giriş', style: Theme.of(context).textTheme.headline4),
+                const SizedBox(height: 30),
+                Container(
+                  child: Form(
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          autocorrect: false,
+                          decoration: const InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
+                            ),
+                            hintText: 'Kullanıcı Adı Giriniz...',
+                            labelText: 'admin',
+                            prefix: Icon(Icons.how_to_reg),
                           ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.deepPurple, width: 2),
-                          ),
-                          hintText: 'Kullanıcı Adı Giriniz...',
-                          labelText: 'admin',
-                          prefixIcon: Icon(Icons.how_to_reg),
                         ),
-                      ),
-                      const SizedBox(height: 30),
-                      TextFormField(
-                        autocorrect: false,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.deepPurple),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.deepPurple, width: 2),
-                          ),
-                          hintText: '***********',
-                          labelText: 'Şifre',
-                          prefixIcon: Icon(Icons.lock_outline),
+                        const SizedBox(height: 30),
+                        TextFormField(
+                          autocorrect: false,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                              hintText: '***********',
+                              labelText: 'Şifre',
+                              prefix: Icon(Icons.lock_outline)),
+                          validator: (value) {
+                            return (value != null && value.length >= 6)
+                                ? null
+                                : 'Kullanıcı adı giriş yapmadınız ....';
+                          },
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 30),
+                        MaterialButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          disabledColor: Colors.grey,
+                          color: Colors.green,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 80, vertical: 15),
+                            child: const Text(
+                              'Giriş',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: 50),
-        //const Text(
-        //  'Kayıt oluşturmak',
-        //  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        //),
-        const Text(
-          kIsWeb ? "App is Running on Web" : "App is Running on Mobile",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-        ),
-      ],
+          const SizedBox(height: 50),
+          //const Text(
+          //  'Kayıt oluşturmak',
+          //  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          //),
+          const Text(
+            kIsWeb ? "App is Running on Web" : "App is Running on Mobile",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+          ),
+        ],
+      ),
     );
   }
 
@@ -105,8 +121,8 @@ class LoginScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color.fromRGBO(63, 63, 156, 1),
-        Color.fromRGBO(90, 70, 178, 1),
+        Color.fromARGB(248, 14, 131, 29),
+        Color.fromARGB(188, 43, 173, 50),
       ])),
       width: double.infinity,
       height: size.height * 0.4,
@@ -124,11 +140,11 @@ class LoginScreen extends StatelessWidget {
 
   Container burbuja() {
     return Container(
-      width: 100,
+      width: double.infinity,
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: const Color.fromRGBO(255, 255, 255, 0.05),
+        color: const Color.fromRGBO(10, 5, 51, 7),
       ),
     );
   }
@@ -136,7 +152,7 @@ class LoginScreen extends StatelessWidget {
   SafeArea iconpersonal() {
     return SafeArea(
       child: Container(
-        margin: const EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 40),
         width: double.infinity,
         child: const Icon(
           Icons.person_pin,
