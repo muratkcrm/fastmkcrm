@@ -19,19 +19,18 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-      
     );
   }
 
   Column loginform(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 250),
+        const SizedBox(height: 200),
         Container(
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.symmetric(horizontal: 30),
           width: double.infinity,
-          height: 350,
+          height: (MediaQuery.of(context).size.height) * 0.5,
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(25),
