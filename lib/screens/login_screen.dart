@@ -49,6 +49,7 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 Container(
                   child: Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Column(
                       children: [
                         TextFormField(
@@ -65,19 +66,23 @@ class LoginScreen extends StatelessWidget {
                             labelText: 'admin',
                             prefix: Icon(Icons.how_to_reg),
                           ),
+                          validator: (value){
+                            return (value != null && value.length >=3)
+                                ? null : 'kullanıcı adı giriniz';
+                          },
                         ),
                         const SizedBox(height: 30),
                         TextFormField(
                           autocorrect: false,
                           obscureText: true,
                           decoration: const InputDecoration(
-                              hintText: '***********',
+                              hintText: '******',
                               labelText: 'Şifre',
                               prefix: Icon(Icons.lock_outline)),
                           validator: (value) {
                             return (value != null && value.length >= 6)
                                 ? null
-                                : 'Kullanıcı adı giriş yapmadınız ....';
+                                : 'şifre girişi yapmadınız .. en az 6 karakter olmalıdır....';
                           },
                         ),
                         const SizedBox(height: 30),
