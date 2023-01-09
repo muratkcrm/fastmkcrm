@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -44,9 +45,9 @@ class LoginScreen extends StatelessWidget {
                 ]),
             child: Column(
               children: [
-                const SizedBox(height: 10),
-                Text('Giriş', style: Theme.of(context).textTheme.headline4),
-                const SizedBox(height: 30),
+                SizedBox(height: 10),
+                Text('login_button'.tr(), style: Theme.of(context).textTheme.headline4),
+                SizedBox(height: 30),
                 Container(
                   child: Form(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -54,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         TextFormField(
                           autocorrect: false,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.green),
                             ),
@@ -63,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                                   BorderSide(color: Colors.green, width: 2),
                             ),
                             hintText: 'Kullanıcı Adı Giriniz...',
-                            labelText: 'admin',
+                            labelText: 'admin'.tr(),
                             prefix: Icon(Icons.how_to_reg),
                           ),
                           validator: (value){
@@ -75,9 +76,9 @@ class LoginScreen extends StatelessWidget {
                         TextFormField(
                           autocorrect: false,
                           obscureText: true,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                               hintText: '******',
-                              labelText: 'Şifre',
+                              labelText: 'password'.tr(),
                               prefix: Icon(Icons.lock_outline)),
                           validator: (value) {
                             return (value != null && value.length >= 6)
@@ -92,14 +93,16 @@ class LoginScreen extends StatelessWidget {
                           disabledColor: Colors.grey,
                           color: Colors.green,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(
+                            padding: EdgeInsets.symmetric(
                                 horizontal: 80, vertical: 15),
-                            child: const Text(
-                              'Giriş',
+                            child: Text(
+                              'login_button'.tr(),
                               style: TextStyle(color: Colors.white),
-                            ),
+                            ).tr(),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(context, 'home');
+                          },
                         ),
                       ],
                     ),
@@ -113,8 +116,8 @@ class LoginScreen extends StatelessWidget {
           //  'Kayıt oluşturmak',
           //  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           //),
-          const Text(
-            kIsWeb ? "App is Running on Web" : "App is Running on Mobile",
+          Text(
+            kIsWeb ? "App is Running on Web".tr() : "App is Running on Mobile".tr(),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
           ),
         ],
