@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 10),
-                Text('login_button'.tr(), style: Theme.of(context).textTheme.headline4),
+                Text('login_title'.tr(), style: Theme.of(context).textTheme.headline4),
                 SizedBox(height: 30),
                 Container(
                   child: Form(
@@ -86,23 +86,25 @@ class LoginScreen extends StatelessWidget {
                                 : 'şifre girişi yapmadınız .. en az 6 karakter olmalıdır....';
                           },
                         ),
-                        const SizedBox(height: 30),
-                        MaterialButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          disabledColor: Colors.grey,
-                          color: Colors.green,
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 80, vertical: 15),
-                            child: Text(
-                              'login_button'.tr(),
-                              style: TextStyle(color: Colors.white),
-                            ).tr(),
+                        const SizedBox(height: 20),
+                        SingleChildScrollView(
+                          child: MaterialButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            disabledColor: Colors.grey,
+                            color: Colors.green,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 80, vertical: 15),
+                              child: Text(
+                                'login_button'.tr(),
+                                style: TextStyle(color: Colors.white),
+                              ).tr(),
+                            ),
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(context, 'home');
+                            },
                           ),
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(context, 'home');
-                          },
                         ),
                       ],
                     ),
