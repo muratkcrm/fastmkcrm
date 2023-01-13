@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastmkcrm/providers/userapi_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsW, kIsWeb;
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,6 +26,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   SingleChildScrollView loginform(BuildContext context) {
+    final userProvider = Provider.of<Userapi_provider>(context);
+    userProvider.getUserapis();
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -102,7 +106,9 @@ class LoginScreen extends StatelessWidget {
                               ).tr(),
                             ),
                             onPressed: () {
-                              Navigator.pushReplacementNamed(context, 'home');
+                              print (userProvider.userapis);
+                              print ("tuşa basıldı.");
+                              // Navigator.pushReplacementNamed(context, 'home');
                             },
                           ),
                         ),
