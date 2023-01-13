@@ -1,12 +1,8 @@
-// To parse this JSON data, do
-//
-//     final userapi = userapiFromJson(jsonString);
-
 import 'dart:convert';
 
-Userapi userapiFromJson(String str) => Userapi.fromJson(json.decode(str));
+List<Userapi> userapiFromJson(String str) => List<Userapi>.from(json.decode(str).map((x)=> Userapi.fromJson(x)));
 
-String userapiToJson(Userapi data) => json.encode(data.toJson());
+String userapiToJson(List<Userapi> data) => json.encode(List<dynamic>.from(data.map((x)=> x.toJson())));
 
 class Userapi {
   Userapi({

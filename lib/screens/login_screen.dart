@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fastmkcrm/providers/userapi_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsW, kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -50,7 +50,8 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 10),
-                Text('login_title'.tr(), style: Theme.of(context).textTheme.headline4),
+                Text('login_title'.tr(),
+                    style: Theme.of(context).textTheme.headline4),
                 SizedBox(height: 30),
                 Container(
                   child: Form(
@@ -71,9 +72,10 @@ class LoginScreen extends StatelessWidget {
                             labelText: 'admin'.tr(),
                             prefix: Icon(Icons.how_to_reg),
                           ),
-                          validator: (value){
-                            return (value != null && value.length >=3)
-                                ? null : 'kullanıcı adı giriniz';
+                          validator: (value) {
+                            return (value != null && value.length >= 3)
+                                ? null
+                                : 'kullanıcı adı giriniz';
                           },
                         ),
                         const SizedBox(height: 30),
@@ -106,8 +108,9 @@ class LoginScreen extends StatelessWidget {
                               ).tr(),
                             ),
                             onPressed: () {
-                              print (userProvider.userapis);
-                              print ("tuşa basıldı.");
+                              print(userProvider.userapis);
+                              print(userProvider);
+                              print("tuşa basıldı.");
                               // Navigator.pushReplacementNamed(context, 'home');
                             },
                           ),
@@ -125,7 +128,9 @@ class LoginScreen extends StatelessWidget {
           //  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           //),
           Text(
-            kIsWeb ? "App is Running on Web".tr() : "App is Running on Mobile".tr(),
+            kIsWeb
+                ? "App is Running on Web".tr()
+                : "App is Running on Mobile".tr(),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
           ),
         ],
