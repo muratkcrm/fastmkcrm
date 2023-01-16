@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   easy_localization: ^3.0.1
-  flutter_datetime_picker: any
+  flutter_datetime_picker: ^1.5.1
   flutter_localization: ^0.1.9
   intl: ^0.17.0 # Add this line
   cupertino_icons: ^1.0.2
