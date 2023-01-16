@@ -14,10 +14,10 @@ class Userapi_provider with ChangeNotifier {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": "true",
       'Content-type': 'Application/json',
-      'Accept': 'Application/json',
+      'Accept': 'application/json',
     });
     final response = userapiFromJson(resp.body);
-    userapis = response as List<Userapi>;
+    userapis = response;
     notifyListeners();
   }
 }
